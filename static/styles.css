@@ -1,0 +1,131 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.show
+{
+    font-size:1.15em;
+    width: 70%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: right;
+}
+
+.show tr td
+{
+    padding-bottom: 5px;
+}
+
+.bold
+{
+    font-weight:bold;
+}
+
+.header
+{
+    border-bottom: 2px solid black;
+}
+
+.quote
+{
+    margin-left:auto;
+    margin-right:auto;
+    width: 30%;
+}
+
+.red
+{
+    color: red;
+}
+
+.title
+{
+    padding: 5px;
+    font-weight: bold;
+    background-color: #303947;
+    border-radius: 10px;
+}
+
+.link
+{
+    font-weight:bold;
+}
+
+.bt
+{
+    background-color: #2eb019;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+
+.bt:nth-child(2)
+{
+    background-color: #d62020;
+
+}
+
+ul li
+{
+    text-align: center;
+}
+
+.container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.f:nth-child(1)
+{
+    border-right: 1px solid black;
+}
+
+.f ul{
+    list-style-type: none;
+}
+
+.but{
+    align-self: flex-end;
+}
+
+
+.edit{
+    background-color: #336154;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.edit:hover{
+    background-color: #4a8e7a;
+    color: white;
+}
+
+#myChart{
+    margin: auto;
+}

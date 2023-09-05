@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Budgets add
+{% endblock %}
+
+{% block main %}
+<form action="/budget_add" method="post" class="container">
+    <div class="f">
+        <ul>
+            <li><span>Budget name </span><input type="text" name="budget_name" placeholder="My budget"></li>
+            <li><span>Budget cash </span><input type="text" name="budget_cash" placeholder="1000"></li>
+            <li><span>Money limit </span><input type="text" name="cash_limit" placeholder="Cash limit" value="0"></li>
+        </ul>
+    </div>
+    <div class="f">
+        <ul>
+            <li><input type="checkbox" id="check" onclick="myFunction()" name="goals" value="goal">Enable goal</li>
+            <li><span>Budget goal</span><input type="text" class="goals" name="cash_goal"></li>
+            <li><input type="date" class="goals" name="date_end"></li>
+        </ul>
+    </div>
+    <div class="but">
+        <button type="submit">ADD</button>
+    </div>
+</form>
+<script src="/static/form.js"></script>
+{% endblock %}

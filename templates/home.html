@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+    <p>Your money: {{cash | usd}}</p>
+
+    {% if budgets == None %}
+    <p>You don't have any budgets yet.</p>
+    {% else %}
+    <h2>Your budgets</h2>
+    <table class="table container-md">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Budget name</th>
+              <th scope="col">Money</th>
+              <th scope="col">Limit</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for info in budgets %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{info.budget_name}}</td>
+                    <td>{{info.budget_cash | usd}}</td>
+                    <td>{{info.cash_limit | usd}}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table container-md">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Budget name</th>
+              <th scope="col">Money</th>
+              <th scope="col">Money goal</th>
+              <th scope="col">Date start</th>
+              <th scope="col">Date end</th>
+            </tr>
+          </thead>
+          <hr/>
+          <h2>Your goals</h2>
+          <tbody>
+        {% for info in goals %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{info.budget_name}}</td>
+                    <td>{{info.budget_cash | usd}}</td>
+                    <td>{{info.cash_goal | usd}}</td>
+                    <td>{{info.date_start}}</td>
+                    <td>{{info.date_end}}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

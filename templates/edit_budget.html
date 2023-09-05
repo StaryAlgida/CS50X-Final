@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add money
+{% endblock %}
+
+{% block main %}
+
+    <form action="/edit_budget" method="post" class="container">
+        <div class="f">
+            <ul>
+                <li>
+                    <select name="budget_name">
+                        <option disabled selected>Choose budget</option>
+                        {% for info in data %}
+                        <option value="{{info.budget_name}}">{{info.budget_name}}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+                <li>
+                    <input type="radio" id="add" name="add_subtract" value="add">
+                    <label for="add">Add</label>
+                    <input type="radio" id="subtract" name="add_subtract" value="subtract">
+                    <label for="subtract">Subtract</label>
+                </li>
+                <li><span>Money </span> <input type="text" name="cash"></li>
+                <li><span>Money limit </span><input type="text" name="cash_limit"></li>
+            </ul>
+        </div>
+        <div class="f">
+            <ul>
+                <li><input type="checkbox" id="check" onclick="myFunction()" name="goals" value="True"> Enable or change gola</li>
+                <li><span>Change goal </span><input type="text" class="goals" name="cash_goal"></li>
+                <li><span>Change end </span><input type="date" class="goals" name="date_end"></li>
+            </ul>
+            <button type="submit">Edit</button>
+        </div>
+    </form>
+    <script src="/static/form.js"></script>
+{% endblock %}

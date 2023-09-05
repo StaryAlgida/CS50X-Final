@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Budgets history
+{% endblock %}
+
+{% block main %}
+    {% if table == None %}
+        <p>You don't have any history yet.</p>
+    {% else %}
+        <h2>Budgets history</h2>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <div>
+            <canvas width="900" height="700" id="myChart"></canvas>
+        </div>
+
+        <script>
+            const ctx = document.getElementById('myChart');
+
+            const data = {
+                labels: {{names | safe}},
+                datasets: [{
+                    data: {{values | safe}},
+                    backgroundColor: {{colors | safe}},
+                    hoverOffset: 4
+                }]
+            };
+
+            new Chart(ctx, {
+              type: 'doughnut',
+              data: data,
+              options: {
+                responsive: false,
+                scales: {
+                  y: {
+                    beginAtZero: false
+                  }
+                }
+              }
+            });
+        </script>
+
+        <table class="table container-md">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Budget name</th>
+                  <th scope="col">Money use</th>
+                  <th scope="col">Operation</th>
+                  <th scope="col">Operation date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in table%}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{d.budget_name}}</td>
+                    <td>{{d.money_use | usd}}</td>
+                    <td>{{d.operation}}</td>
+                    <td>{{d.op_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    {% endif %}
+{% endblock %}

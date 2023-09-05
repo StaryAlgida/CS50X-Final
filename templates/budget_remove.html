@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Budgets remove
+{% endblock %}
+
+{% block main %}
+<form action="/budget_remove" method="POST">
+    <div class="mb-3">
+        <select name="budget_name">
+            <option disabled selected>Choose budget</option>
+            {% for info in data %}
+            <option value="{{info.budget_name}}">{{info.budget_name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Remov</button>
+</form>
+{% endblock %}

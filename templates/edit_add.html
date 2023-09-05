@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add money
+{% endblock %}
+
+{% block main %}
+
+    <form action="/edit_add" method="post" class="container">
+        Money <input type="text" name="money">
+        <button type="submit">Add</button>
+    </form>
+
+{% endblock %}
